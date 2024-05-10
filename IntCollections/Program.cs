@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IntCollections
 {
@@ -21,18 +22,61 @@ namespace IntCollections
                 queue.Enqueue(number);
                 hashSet.Add(number);
             }
-             foreach( int i in list)
-                 Console.WriteLine($"List: {i}");
+            Console.WriteLine(PrintList("List", list));
 
-             foreach( int i in stack)
-                 Console.WriteLine($"Stack: {i}");
+            Console.WriteLine(PrintStack("Stack", stack));
             
-             foreach( int i in queue)
-                 Console.WriteLine($"Queue: {i}");
+            Console.WriteLine(PrintQueue("Queue", queue));
             
-             foreach( int i in hashSet)
-                 Console.WriteLine($"HashSet: {i}");
+            Console.WriteLine(PrintList("HashSet", hashSet));
 
+        }
+        public static string PrintList(string type, IEnumerable<int> collection)
+        {
+            string s = $"{type}: ";
+            int index = 0;
+            int count = collection.Count();
+            foreach (int number in collection )
+            {
+                if (index == (count -1))
+                {
+                    s += $"{number}";
+                }
+                else
+                {
+                    s += $"{number}, ";
+                }
+                index++;
+            }
+            return s;
+        }
+        public static string PrintStack(string type, Stack<int> collection)
+        {
+            string s = $"{type}: ";
+            int count = collection.Count;
+            for(int i = 0; i < count; i++)
+            {
+                s += collection.Pop();
+                if ( i < count -1)
+                {
+                    s += ", ";
+                }
+            }
+            return s;
+        }
+        public static string PrintQueue(string type, Queue<int> collection)
+        {
+            string s = $"{type}: ";
+            int count = collection.Count;
+            for(int i = 0; i < count; i++)
+            {
+                s += collection.Dequeue();
+                if ( i < count -1)
+                {
+                    s += ", ";
+                }
+            }
+            return s;
         }
     }
 }
