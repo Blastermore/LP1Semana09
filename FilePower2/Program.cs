@@ -11,7 +11,7 @@ namespace FilePower1
         {
             string content = null;
 
-            using StreamWriter sw = new StreamWriter("FilePower2/"+args[0]);
+            using StreamWriter sw = new StreamWriter(args[0]);
             
             while ((content = Console.ReadLine()) != "")
             {
