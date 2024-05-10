@@ -35,6 +35,11 @@ namespace CharSets
             foreach (HashSet<char> set in list)
                 final_set.IntersectWith(set);
             List<char> processed_final_set= final_set.ToList();
+            processed_final_set.Sort();
+            foreach(char c in processed_final_set)
+            {
+                Console.WriteLine(c);
+            }
         }
     }
 }
