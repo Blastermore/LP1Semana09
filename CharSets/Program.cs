@@ -34,6 +34,7 @@ namespace CharSets
             HashSet<char>final_set = list[0];
             foreach (HashSet<char> set in list)
                 final_set.IntersectWith(set);
+            List<char> processed_final_set= final_set.ToList();
         }
     }
 }
