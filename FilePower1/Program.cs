@@ -28,7 +28,7 @@ namespace FilePower1
             }
             foreach(string element in queue)
             {
-                contents += $"element\n";
+                contents += $"{element}\n";
             }
 
             File.WriteAllText(path, contents);
