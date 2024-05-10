@@ -11,10 +11,10 @@ namespace CharSets
         static void Main(string[] args)
         {
             string s;
-            HashSet<char> hashSet = new HashSet<char>();
             List<HashSet<char>> list = new List<HashSet<char>>();
             for(int i = 0; i < args.Length; i++)
             {
+                HashSet<char> hashSetTemp = new HashSet<char>();
                 string path = Path.Combine("CharSets",args[i]);
                 using StreamReader sr = new StreamReader(path);
                 while ((s = sr.ReadLine()) != null)
@@ -26,15 +26,15 @@ namespace CharSets
                     }
                     else
                     {
-                        hashSet.Add(s[0]);
+                        hashSetTemp.Add(s[0]);
                     }
                 }
-                list.Add(hashSet);
+                list.Add(hashSetTemp);
             }
-            HashSet<char>final_set = list[0];
+
             foreach (HashSet<char> set in list)
-                final_set.IntersectWith(set);
-            List<char> processed_final_set= final_set.ToList();
+                list[0].IntersectWith(set);
+            List<char> processed_final_set= list[0].ToList();
             processed_final_set.Sort();
             foreach(char c in processed_final_set)
             {
