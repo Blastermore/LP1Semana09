@@ -9,29 +9,15 @@ namespace FilePower1
     {
         static void Main(string[] args)
         {
-            string path = Path.Combine("FilePower1", args[0]);
-            string s = "Yipee";
-            string contents = "";
-            Queue<string> queue = new Queue<string>();
-            while (s != "")
-            {
-                Console.Write("Next input\n>");
-                s = Console.ReadLine();
-                if(s =="")
-                {
-                    break;
-                }
-                else
-                {
-                    queue.Enqueue(s);
-                }
-            }
-            foreach(string element in queue)
-            {
-                contents += $"{element}\n";
-            }
+            string content = null;
 
-            File.WriteAllText(path, contents);
+            using StreamWriter sw = new StreamWriter("FilePower2/"+args[0]);
+            
+            while ((content = Console.ReadLine()) != "")
+            {
+                Console.WriteLine(content);
+                sw.WriteLine(content);
+            }
         }
     }
 }
