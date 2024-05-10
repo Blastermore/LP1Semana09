@@ -15,7 +15,6 @@ namespace FilePower1
             
             while ((content = Console.ReadLine()) != "")
             {
-                Console.WriteLine(content);
                 sw.WriteLine(content);
             }
         }

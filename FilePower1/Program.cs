@@ -15,7 +15,6 @@ namespace FilePower1
             Queue<string> queue = new Queue<string>();
             while (s != "")
             {
-                Console.Write("Next input\n>");
                 s = Console.ReadLine();
                 if(s =="")
                 {
